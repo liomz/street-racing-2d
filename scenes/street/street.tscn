@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ctu2rtujiy813"]
+
+[ext_resource type="Texture2D" uid="uid://d0dn5rvfwrvd5" path="res://assets/art/background/road.png" id="1_puxam"]
+[ext_resource type="Shader" uid="uid://buldh68oxcvjx" path="res://resources/shaders/scrolling.gdshader" id="1_ssw2a"]
+[ext_resource type="PackedScene" uid="uid://oe5x0pbjfiq1" path="res://scenes/player/player.tscn" id="3_nq633"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_puxam"]
+shader = ExtResource("1_ssw2a")
+shader_parameter/speed = 0.5
+
+[node name="Street" type="Node2D" unique_id=1136648687]
+
+[node name="RoadBackground" type="Sprite2D" parent="." unique_id=945240514]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_puxam")
+texture = ExtResource("1_puxam")
+centered = false
+
+[node name="Actors" type="Node2D" parent="." unique_id=1823489863]
+
+[node name="Player" parent="Actors" unique_id=1723785019 instance=ExtResource("3_nq633")]
+position = Vector2(328, 748)
