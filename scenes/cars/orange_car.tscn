@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cvqgooms5veit"]
+
+[ext_resource type="PackedScene" uid="uid://cdtnb88g211dw" path="res://scenes/cars/car.tscn" id="1_mbeyx"]
+[ext_resource type="Texture2D" uid="uid://bysr7vjq38ba5" path="res://assets/art/cars/Car.png" id="2_dftcd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m083j"]
+size = Vector2(82, 204)
+
+[node name="OrangeCar" unique_id=2112853929 instance=ExtResource("1_mbeyx")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=994552471]
+texture = ExtResource("2_dftcd")
+offset = Vector2(2, 0)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1938469391]
+shape = SubResource("RectangleShape2D_m083j")

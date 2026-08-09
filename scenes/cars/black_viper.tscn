@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bqqdxuvenpw32"]
+
+[ext_resource type="PackedScene" uid="uid://cdtnb88g211dw" path="res://scenes/cars/car.tscn" id="1_bl7sh"]
+[ext_resource type="Texture2D" uid="uid://tdhws7fh4wau" path="res://assets/art/cars/Black_viper.png" id="2_mnve8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7aay"]
+size = Vector2(88, 210)
+
+[node name="BlackViper" unique_id=2112853929 instance=ExtResource("1_bl7sh")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=994552471]
+texture = ExtResource("2_mnve8")
+offset = Vector2(9, 0)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1938469391]
+shape = SubResource("RectangleShape2D_c7aay")

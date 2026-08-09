@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cdtnb88g211dw"]
+
+[ext_resource type="Script" uid="uid://q0p28wl7nwcg" path="res://scenes/cars/Car.gd" id="1_dm3yp"]
+
+[node name="Car" type="Area2D" unique_id=2112853929]
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_dm3yp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=994552471]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1938469391]

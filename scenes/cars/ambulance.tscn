@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cdurukdc81kjm"]
+
+[ext_resource type="PackedScene" uid="uid://cdtnb88g211dw" path="res://scenes/cars/car.tscn" id="1_tt7qp"]
+[ext_resource type="Texture2D" uid="uid://b8t625dtjgks8" path="res://assets/art/cars/Ambulance.png" id="2_lrfjn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm3yp"]
+size = Vector2(80, 208)
+
+[node name="Ambulance" unique_id=2112853929 instance=ExtResource("1_tt7qp")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=994552471]
+texture = ExtResource("2_lrfjn")
+offset = Vector2(5, 0)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1938469391]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_dm3yp")

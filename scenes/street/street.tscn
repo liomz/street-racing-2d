@@ -3,6 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://d0dn5rvfwrvd5" path="res://assets/art/background/road.png" id="1_puxam"]
 [ext_resource type="Shader" uid="uid://buldh68oxcvjx" path="res://resources/shaders/scrolling.gdshader" id="1_ssw2a"]
 [ext_resource type="PackedScene" uid="uid://oe5x0pbjfiq1" path="res://scenes/player/player.tscn" id="3_nq633"]
+[ext_resource type="Script" uid="uid://s284glrdkg65" path="res://scenes/street/ActorsHandler.gd" id="3_ya6v6"]
+[ext_resource type="PackedScene" uid="uid://cdurukdc81kjm" path="res://scenes/cars/ambulance.tscn" id="4_4t21n"]
+[ext_resource type="PackedScene" uid="uid://ctuf4oomg8m4s" path="res://scenes/cars/audi.tscn" id="5_ddui3"]
+[ext_resource type="PackedScene" uid="uid://bqqdxuvenpw32" path="res://scenes/cars/black_viper.tscn" id="6_s5p3i"]
+[ext_resource type="PackedScene" uid="uid://bwpn5uy6ddvxf" path="res://scenes/cars/mini_truck.tscn" id="7_37ef8"]
+[ext_resource type="PackedScene" uid="uid://chx6jkvtxtgei" path="res://scenes/cars/mini_van.tscn" id="8_58dd5"]
+[ext_resource type="PackedScene" uid="uid://cvqgooms5veit" path="res://scenes/cars/orange_car.tscn" id="9_0bklv"]
+[ext_resource type="PackedScene" uid="uid://olbe8ldfuw1l" path="res://scenes/cars/police.tscn" id="10_c3l4m"]
+[ext_resource type="PackedScene" uid="uid://bhnesj5v658sh" path="res://scenes/cars/taxi.tscn" id="11_ipwsk"]
+[ext_resource type="PackedScene" uid="uid://ccoul4gbpij8m" path="res://scenes/cars/truck.tscn" id="12_0ihhe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_puxam"]
 shader = ExtResource("1_ssw2a")
@@ -16,7 +26,27 @@ material = SubResource("ShaderMaterial_puxam")
 texture = ExtResource("1_puxam")
 centered = false
 
-[node name="Actors" type="Node2D" parent="." unique_id=1823489863]
+[node name="Actors" type="Node2D" parent="." unique_id=1823489863 node_paths=PackedStringArray("PositionNodes")]
+script = ExtResource("3_ya6v6")
+PositionNodes = NodePath("../Positions")
+CarScenes = Array[PackedScene]([ExtResource("4_4t21n"), ExtResource("5_ddui3"), ExtResource("6_s5p3i"), ExtResource("7_37ef8"), ExtResource("8_58dd5"), ExtResource("9_0bklv"), ExtResource("10_c3l4m"), ExtResource("11_ipwsk"), ExtResource("12_0ihhe")])
 
 [node name="Player" parent="Actors" unique_id=1723785019 instance=ExtResource("3_nq633")]
-position = Vector2(328, 748)
+position = Vector2(775, 743)
+
+[node name="Positions" type="Node2D" parent="." unique_id=1197839393]
+
+[node name="Marker2D" type="Marker2D" parent="Positions" unique_id=1257536238]
+position = Vector2(788, -300)
+
+[node name="Marker2D2" type="Marker2D" parent="Positions" unique_id=973497117]
+position = Vector2(626, -299)
+
+[node name="Marker2D3" type="Marker2D" parent="Positions" unique_id=324866444]
+position = Vector2(463, -299)
+
+[node name="Marker2D4" type="Marker2D" parent="Positions" unique_id=299426304]
+position = Vector2(283, -295)
+
+[node name="Marker2D5" type="Marker2D" parent="Positions" unique_id=2105942263]
+position = Vector2(116, -294)

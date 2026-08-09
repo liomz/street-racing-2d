@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://s660a2ydcuwe"]
+
+[ext_resource type="Script" uid="uid://ctomqwa87nsyd" path="res://core/game_manager/GameManager.gd" id="1_1tt2u"]
+[ext_resource type="Script" uid="uid://7axhvmoo0k2m" path="res://core/game_manager/GameSM.gd" id="1_pe224"]
+[ext_resource type="Script" uid="uid://dnrbae3xkqlas" path="res://core/game_manager/states/GameStateInPlay.gd" id="2_qi7k4"]
+[ext_resource type="Script" uid="uid://ce2n8n3vlimk8" path="res://core/game_manager/states/GameStateNextRound.gd" id="3_1tt2u"]
+[ext_resource type="Script" uid="uid://dbvgokt47ns42" path="res://core/game_manager/states/GameStateGameOver.gd" id="4_3o4rk"]
+[ext_resource type="Script" uid="uid://dhfxqmilmfr" path="res://core/game_manager/states/GameStateReset.gd" id="5_c1a3y"]
+
+[node name="GameManager" type="Node" unique_id=1520520398]
+script = ExtResource("1_1tt2u")
+
+[node name="GameSM" type="Node" parent="." unique_id=1406764322 node_paths=PackedStringArray("init_state")]
+script = ExtResource("1_pe224")
+init_state = NodePath("Reset")
+
+[node name="InPlay" type="Node" parent="GameSM" unique_id=976022475]
+script = ExtResource("2_qi7k4")
+
+[node name="NextRound" type="Node" parent="GameSM" unique_id=1179727831]
+script = ExtResource("3_1tt2u")
+
+[node name="GameOver" type="Node" parent="GameSM" unique_id=972928303]
+script = ExtResource("4_3o4rk")
+
+[node name="Reset" type="Node" parent="GameSM" unique_id=1420623214]
+script = ExtResource("5_c1a3y")

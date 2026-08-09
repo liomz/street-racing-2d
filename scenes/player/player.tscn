@@ -2,12 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://dc7ij88diibsq" path="res://assets/art/cars/Audi.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://ixd2124dbyps" path="res://scenes/player/Player.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://dvq3bsbpi1hks" path="res://scenes/player/PlayerSM.gd" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://cn57djj4k202e" path="res://scenes/player/states/PlayerStateResetting.gd" id="4_75vfm"]
+[ext_resource type="Script" uid="uid://b3se2mt25yn0l" path="res://scenes/player/states/PlayerStateMoving.gd" id="5_0owmy"]
+[ext_resource type="Script" uid="uid://cpeqyuuvt1onx" path="res://scenes/player/states/PlayerStateCrashing.gd" id="6_qek5x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gnnt8"]
 radius = 43.0
 height = 212.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnnt8"]
+size = Vector2(76, 186)
+
 [node name="Player" type="CharacterBody2D" unique_id=1723785019]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_dovo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2136488875]
@@ -16,3 +25,25 @@ texture = ExtResource("1_8afob")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1471777343]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_gnnt8")
+
+[node name="CarDetect" type="Area2D" parent="." unique_id=2009782196]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarDetect" unique_id=1316674185]
+shape = SubResource("RectangleShape2D_gnnt8")
+
+[node name="PlayerSM" type="Node" parent="." unique_id=26709532 node_paths=PackedStringArray("player", "init_state")]
+script = ExtResource("3_gmlin")
+player = NodePath("..")
+init_state = NodePath("Resetting")
+
+[node name="Resetting" type="Node" parent="PlayerSM" unique_id=1706664544]
+script = ExtResource("4_75vfm")
+
+[node name="Moving" type="Node" parent="PlayerSM" unique_id=1567633288]
+script = ExtResource("5_0owmy")
+
+[node name="Crashing" type="Node" parent="PlayerSM" unique_id=346998848]
+script = ExtResource("6_qek5x")
+
+[connection signal="area_entered" from="CarDetect" to="." method="on_collision"]

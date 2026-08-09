@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://olbe8ldfuw1l"]
+
+[ext_resource type="PackedScene" uid="uid://cdtnb88g211dw" path="res://scenes/cars/car.tscn" id="1_wiel2"]
+[ext_resource type="Texture2D" uid="uid://bg47qwuydknu5" path="res://assets/art/cars/Police.png" id="2_5pgbc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nsq8"]
+size = Vector2(80, 211)
+
+[node name="Police" unique_id=2112853929 instance=ExtResource("1_wiel2")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=994552471]
+texture = ExtResource("2_5pgbc")
+offset = Vector2(2, 0)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1938469391]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_8nsq8")

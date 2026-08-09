@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://chx6jkvtxtgei"]
+
+[ext_resource type="PackedScene" uid="uid://cdtnb88g211dw" path="res://scenes/cars/car.tscn" id="1_gxq0q"]
+[ext_resource type="Texture2D" uid="uid://bobcsfv2x11f1" path="res://assets/art/cars/Mini_van.png" id="2_v0j45"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdhl0"]
+size = Vector2(76, 194)
+
+[node name="MiniVan" unique_id=2112853929 instance=ExtResource("1_gxq0q")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=994552471]
+texture = ExtResource("2_v0j45")
+offset = Vector2(8, 0)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1938469391]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_gdhl0")

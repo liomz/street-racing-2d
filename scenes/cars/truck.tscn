@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ccoul4gbpij8m"]
+
+[ext_resource type="PackedScene" uid="uid://cdtnb88g211dw" path="res://scenes/cars/car.tscn" id="1_mjyhh"]
+[ext_resource type="Texture2D" uid="uid://cek8rets3jlql" path="res://assets/art/cars/truck.png" id="2_v22db"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnjh2"]
+size = Vector2(70, 195)
+
+[node name="Truck" unique_id=2112853929 instance=ExtResource("1_mjyhh")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=994552471]
+texture = ExtResource("2_v22db")
+offset = Vector2(7, 0)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1938469391]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_gnjh2")
