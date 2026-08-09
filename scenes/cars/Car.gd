@@ -5,6 +5,10 @@ const BOUNDARY_LIMIT: float = 894.0
 var speed: float = 1.0
 
 
+func init(_speed: float) -> void:
+	speed = _speed
+
+
 func _process(delta: float) -> void:
 	move_car(delta)
 	#warp()

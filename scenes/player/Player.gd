@@ -17,6 +17,9 @@ func _ready() -> void:
 	
 	player_sm.init()
 	player_sm.activate()
+	EventBus.game_start.connect(on_game_start)
+	EventBus.game_reset.connect(on_game_reset)
+	EventBus.game_over.connect(on_game_over)
 
 
 func _process(delta: float) -> void:
@@ -71,6 +74,13 @@ func add_drag_force(delta: float) -> void:
 		velocity.y += DRAG_FORCE * delta * 1000.0
 
 
-func on_collision(_area: Area2D) -> void:
-	print("Collision!")
-	EventBus.car_collided.emit()
+func on_game_over() -> void:
+	player_sm.change_state(player_sm.get_state("Crashing"))
+
+
+func on_game_start() -> void:
+	player_sm.change_state(player_sm.get_state("Moving"))
+
+
+func on_game_reset() -> void:
+	player_sm.change_state(player_sm.get_state("Resetting"))

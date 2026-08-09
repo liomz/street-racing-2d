@@ -5,7 +5,7 @@ func setup() -> void:
 
 
 func enter() -> void:
-	pass
+	print("Crashed!")
 
 
 func tick(delta: float) -> void:

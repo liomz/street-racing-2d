@@ -32,9 +32,10 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CarDetect" unique_id=1316674185]
 shape = SubResource("RectangleShape2D_gnnt8")
 
-[node name="PlayerSM" type="Node" parent="." unique_id=26709532 node_paths=PackedStringArray("player", "init_state")]
+[node name="PlayerSM" type="Node" parent="." unique_id=26709532 node_paths=PackedStringArray("player", "car_detect", "init_state")]
 script = ExtResource("3_gmlin")
 player = NodePath("..")
+car_detect = NodePath("../CarDetect")
 init_state = NodePath("Resetting")
 
 [node name="Resetting" type="Node" parent="PlayerSM" unique_id=1706664544]

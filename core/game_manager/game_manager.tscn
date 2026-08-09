@@ -10,8 +10,9 @@
 [node name="GameManager" type="Node" unique_id=1520520398]
 script = ExtResource("1_1tt2u")
 
-[node name="GameSM" type="Node" parent="." unique_id=1406764322 node_paths=PackedStringArray("init_state")]
+[node name="GameSM" type="Node" parent="." unique_id=1406764322 node_paths=PackedStringArray("manager", "init_state")]
 script = ExtResource("1_pe224")
+manager = NodePath("..")
 init_state = NodePath("Reset")
 
 [node name="InPlay" type="Node" parent="GameSM" unique_id=976022475]

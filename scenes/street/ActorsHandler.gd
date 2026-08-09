@@ -16,6 +16,10 @@ var can_spawn_cars: bool = false
 func _ready() -> void:
 	for marker in PositionNodes.get_children():
 		positions.append(marker.global_position)
+	
+	EventBus.game_reset.connect(on_game_reset)
+	EventBus.game_start.connect(on_game_start)
+	EventBus.game_over.connect(on_game_over)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,12 +33,9 @@ func _process(delta: float) -> void:
 
 func spawn_random_car() -> void:
 	var car = CarScenes.pick_random().instantiate()
+	car.init((GameManager.round - 1) * 2 + 1)
 	add_child(car)
 	car.global_position = positions.pick_random()
-
-
-func on_next_level() -> void:
-	can_spawn_cars = false
 
 
 func on_game_reset() -> void:
