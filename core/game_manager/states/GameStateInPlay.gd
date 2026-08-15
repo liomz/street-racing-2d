@@ -18,7 +18,7 @@ func tick(delta: float) -> void:
 	
 	if manager.time_left <= 0:
 		manager.time_left = 0
-		state_machine.change_state(state_machine.get_state("Reset"))
+		state_machine.change_state(state_machine.get_state("NextRound"))
 
 
 func exit() -> void:

@@ -11,7 +11,7 @@ func setup() -> void:
 
 
 func enter() -> void:
-	print("Resetting")
+	pass
 
 
 func tick(delta: float) -> void:
@@ -19,7 +19,7 @@ func tick(delta: float) -> void:
 	
 	if player.global_position.distance_to(starting_pos) < MIN_DISTANCE:
 		EventBus.player_ready.emit()
-		#state_machine.change_state(state_machine.get_state("Moving"))
+		state_machine.change_state(state_machine.get_state("Moving"))
 
 
 func exit() -> void:

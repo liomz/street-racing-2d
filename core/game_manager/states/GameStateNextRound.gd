@@ -1,6 +1,6 @@
 extends GameState
 
-const NEXT_ROUND_DURATION: float = 3.0
+const NEXT_ROUND_DURATION: float = 5.0
 
 var timer: float = 0.0
 
@@ -9,17 +9,21 @@ func setup() -> void:
 
 
 func enter() -> void:
-	timer = 0
+	timer = NEXT_ROUND_DURATION
 	manager.round += 1
-	manager.time_left = manager.ROUND_DURATION * manager.round
+	manager.time_left = manager.ROUND_DURATION
+	EventBus.game_next_round.emit()
 
 
 func tick(delta: float) -> void:
-	timer += delta
+	timer -= delta
 	
-	manager.output_label("%d" % int(NEXT_ROUND_DURATION - timer))
+	if timer <= 3:
+		manager.output_label("%d" % int(timer + 1))
+	else:
+		manager.output_label("Round " + str(manager.round))
 	
-	if timer > NEXT_ROUND_DURATION:
+	if timer <= 0.0:
 		state_machine.change_state(state_machine.get_state("InPlay"))
 
 
